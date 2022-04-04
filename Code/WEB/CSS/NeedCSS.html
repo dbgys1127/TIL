@@ -6,15 +6,22 @@
   <style>
     a {
       color:black;
+      text-decoration: none;
     }
     <!--CSS는 HTML이 정보만 담게하고, 디자인은 CSS가 하게 하기 위함-->
+    <!--a{ }는 누구에게 저 속성을 적용할 것인지 정해주는 선택자라고 부른다.
+      그리고, color:black 부분은 선언, 효과, 디컬러레이션이라고 부른다.-->
   </style>
 </head>
 <body>
   <h1><a href="index.html">WEB</a></h1>
   <ol>
     <li><a href="1.html">HTML</a></li>
-    <li><a href="2.html">CSS</a></li>
+    <li><a href="2.html" style="color:red; text-decoration:underline">CSS</a></li>
+    <!-- style 속성을 쓰면, style이 있는 위치에 대해 CSS 속성을 적용한다는 뜻-->
+    <!-- 디컬러레이션은 style 태그 위치에 직접 사용하기 때문에, 선택자를 사용할
+    필요가 없다.-->
+    <!--CSS 삽입 방법은 스타일 태그를 쓰거나, 스타일 속성을 쓰면된다.-->
     <li><a href="3.html">JavaScript</a></li>
   </ol>
   <!--
