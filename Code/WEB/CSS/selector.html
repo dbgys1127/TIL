@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEB1_CSS</title>
+  <meta charset="utf-8">
+  <style>
+
+    #active{
+      color:red;
+    }
+
+    a {
+      color:black;
+      text-decoration: none;
+    }
+
+    .saw {
+      color:gray;
+    }
+
+    h1 {
+      font-size: xx-large;
+      text-align: right;
+    }
+  </style>
+  <!--CSS는 HTML이 정보만 담게하고, 디자인은 CSS가 하게 하기 위함-->
+  <!--a{ }는 누구에게 저 속성을 적용할 것인지 정해주는 선택자라고 부른다.
+    그리고, color:black 부분은 선언, 효과, 디컬러레이션이라고 부른다.-->
+  <!--클래스 값이 saw인 태그를 바꾸고 싶으면 .을 찍어야한다.-->
+</head>
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+  <ol>
+    <li><a href="1.html"class="saw">HTML</a></li>
+    <li><a href="2.html"class="saw" id="active">CSS</a></li>
+    <!-- style 속성을 쓰면, style이 있는 위치에 대해 CSS 속성을 적용한다는 뜻-->
+    <!-- 디컬러레이션은 style 태그 위치에 직접 사용하기 때문에, 선택자를 사용할
+    필요가 없다.-->
+    <!--CSS 삽입 방법은 스타일 태그를 쓰거나, 스타일 속성을 쓰면된다.-->
+    <!--클래스에는 여러개의 값이 들어올 수 있고,띄어쓰기로 구분하고, 하나의 태그에는
+  여러개의 속성이 들어오고 여러개의 선택자를 통해 여려개의 제어를 할 수 있다. -->
+  <!--더 최근(아래) 명령이 우선순위를 갖게 된다.-->
+  <!--id선택자가 class 선택자보다 우선순위, class 선택자가 tag선택자보다 우선순위가 높다.-->
+  <!--같을때는 최근(아래)선택자가 우선순위가 높다.-->
+  <!--쉽게 말해 더 구체적인 것이 포괄적인 것 보다 우선순위가 높다.-->
+
+    <li><a href="3.html">JavaScript</a></li>
+  </ol>
+  <!--
+  <h1><a href="index.html"><font color="red">WEB</font></a></h1>
+  <ol>
+    <li><a href="1.html"><font color="red">HTML</font></a></li>
+    <li><a href="2.html"><font color="red">CSS</font></a></li>
+    <li><a href="3.html"><font color="red">JavaScript</font></a></li>
+  </ol>-->
+  <h2>CSS</h2>
+  <p><!--<p><img src="CSSlogo.svg" width="30%">--><br>Cascading Style Sheet
+
+HTML 등의 마크업 언어로 작성된 문서가 실제로 웹사이트에 표현되는 방법을 정해주는 스타일시트 언어.
+
+CSS의 C가 Cascading[1]의 약자인데, 이는 상위 요소의 스타일 속성을 자손 요소
+들에게 상속시켜주는 모습이 DOM 트리구조에서 마치 폭포수처럼 내려가는
+모습을 닮았기 때문이다. 다만 예외로 마진, 패딩, 보더 등의 박스모델 관련
+속성은 상속되지 않는다. 물론 inherit 값을 줘서 강제로 상속시킬 순 있다.</p>
