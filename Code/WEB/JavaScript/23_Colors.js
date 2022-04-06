@@ -1,21 +1,25 @@
 
         var Link ={
             setColor:function(color){
-                var alist =document.querySelectorAll('a');
-                var i =0;
-                while(i<alist.length){
-                alist[i].style.color=color;
-                i++;
-                }
+                //var alist =document.querySelectorAll('a');
+                //var i =0;
+                //while(i<alist.length){
+                //alist[i].style.color=color;
+                //i++;
+                //}
+                $('a').css('color',color);
+                //a라는 모든 태그를 jQuery로 바꿔주겠다.
             }
         }
 
         var Body = {
             setColor:function(color){
-                document.querySelector('body').style.color=color;
+                //document.querySelector('body').style.color=color;
+                $('body').css('color',color);
             },
             setBackground:function(color){
-                document.querySelector('body').style.backgroundColor=color;
+                //document.querySelector('body').style.backgroundColor=color;
+                $('body').css('backgroundColor',color);
             }
         }
 
