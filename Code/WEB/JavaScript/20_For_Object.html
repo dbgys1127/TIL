@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Object</h1>
+        <h2>Create</h2>
+        <script>
+            var coworkers = {
+                "programmer":"dbgys",
+                "designer":"leezche"
+            };//객체 생성
+            document.write("programmer : "+coworkers.programmer+'<br>');
+            document.write("designer : "+coworkers.designer+'<br>');
+            //객체 사용
+            coworkers.bookkeeper = "duru";
+            //객체 추가
+            document.write("bookkeeper : "+coworkers.bookkeeper+'<br>');
+            coworkers["data scientist"] = "taeho";
+            //띄어쓰기가 있는 객체를 추가/사용할때는 []를 사용한다.
+            document.write("data scientist : "+coworkers["data scientist"]+'<br>');
+        </script>
+        <h2>Iterate</h2>
+        <script>
+        //coworkers 변수가 가리키는 객체에 있는 key(programmer, designer 등)값을 가져오는 반복문
+            for(var key in coworkers){
+                document.write(key+'<br>');
+                document.write(coworkers[key]+'<br>');
+                //배열의 인덱스가 정보가 저장된 곳을 찾는 역할인데,
+                //객체에서는 key가 그 역할을 한다.
+                document.write(key+' : '+coworkers[key]+'<br>');
+                document.write('<br>');
+            }
+        </script>
+    </body>
+</html>
