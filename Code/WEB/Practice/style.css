@@ -1,0 +1,60 @@
+a{
+    color:black;
+    text-decoration:none;
+    font-weight: bold;
+}
+h1{
+    font-size: xxx-large;
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.subject{
+    text-align: center;
+    font-size: xx-large;
+    text-decoration:underline blueviolet;
+}
+ul{
+    font-size: large;
+    width: 100px;
+    height: 62px;
+    border-right: 2px solid black;
+    margin: 0px;
+    padding-top:20px;
+    padding-left: 20px;
+    padding-bottom: 65px;
+}
+#grid{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    border-bottom: 2px solid black;
+}
+#content{
+    display: grid;
+    grid-template-columns: 210px 2fr;   
+    border-bottom: 2px solid black;
+}
+.issue{
+    display: grid;
+    grid-template-rows: 50px 1fr;
+}
+img{
+    padding-right: 10px;
+    padding-bottom: 10px;
+    
+}
+
+@media(max-width:500px){
+    #grid{
+        display: block;
+    }
+    ul{
+        border-right: none;
+        padding-bottom: 20px;
+    }
+    h1{
+        border-bottom: none;
+    }
+}
