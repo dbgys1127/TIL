@@ -22,20 +22,19 @@ var Border={
     setColor:function(color){
     var border=document.getElementById('grid');
     var border1=document.getElementById('content');
-    var border2=document.querySelector('h1');
-    var border3=document.querySelector('ul');
+    var border2=document.getElementById('content1');
+    var border3=document.getElementById('content2');
+    var border4=document.querySelector('h1');
+    var border5=document.querySelector('ul');
     border.style.borderBlockColor=color;
     border1.style.borderBottomColor=color;
-    border2.style.borderBlockColor=color;
-    border3.style.borderRightColor=color;
+    border2.style.borderBottomColor=color;
+    border3.style.borderBottomColor=color;
+    border4.style.borderBlockColor=color;
+    border5.style.borderRightColor=color;
     }
 }
-//var Table={
-//    setColor:function(color){
-//    var target=document.getElementsByTagName('td');
-//    target.style.color='color';
-//    }
-//}
+
 function dayNightHandler(self){
     
     if(self.value==='night')
@@ -44,7 +43,6 @@ function dayNightHandler(self){
         Body.setBackgroundColor('black');
         Link.setColor('powderblue');
         Border.setColor('white');
-        //Table.setColor('black');
         self.value='day';
 
     }else{
@@ -54,7 +52,6 @@ function dayNightHandler(self){
         Body.setBackgroundColor('white');
         Link.setColor('black');
         Border.setColor('black');
-        //Table.setColor('black');
         self.value='night';
     
     }

@@ -16,6 +16,14 @@ var Body ={
     setBackgroundColor:function(color){
     var target=document.querySelector('body');  
     target.style.backgroundColor=color;
+    },
+    setTableColor:function(){
+    var target=document.getElementById('table1');
+    target.style.color='black';
+    },
+    setTableWColor:function(){
+    var target=document.getElementById('table');
+    target.style.color='black';
     }
 }
 
@@ -39,7 +47,8 @@ function dayNightHandler(self){
         Body.setBackgroundColor('black');
         Link.setColor('powderblue');
         Border.setColor('white');
-        //td.style.backgroundColor='black';
+        Body.setTableColor();
+        Body.setTableWColor();
         self.value='day';
 
     }else{
@@ -49,7 +58,8 @@ function dayNightHandler(self){
         Body.setBackgroundColor('white');
         Link.setColor('black');
         Border.setColor('black');
-        //td.style.backgroundColor='black';
+        Body.setTableColor();
+        Body.setTableWColor();
         self.value='night';
     
     }

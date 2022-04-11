@@ -36,6 +36,16 @@ ul{
     grid-template-columns: 210px 2fr;   
     border-bottom: 2px solid black;
 }
+#content1{
+    display: grid;
+    grid-template-columns: 210px 2fr;   
+    border-bottom: 2px solid black;
+}
+#content2{
+    display: grid;
+    grid-template-columns: 210px 2fr;   
+    border-bottom: 2px solid black;
+}
 #table{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
