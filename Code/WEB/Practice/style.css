@@ -36,6 +36,10 @@ ul{
     grid-template-columns: 210px 2fr;   
     border-bottom: 2px solid black;
 }
+#table{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .issue{
     display: grid;
     grid-template-rows: 50px 1fr;
@@ -50,11 +54,23 @@ img{
     #grid{
         display: block;
     }
+    #content{
+        display: block;
+    }
+    #table{
+        display: block;
+    }
     ul{
         border-right: none;
         padding-bottom: 20px;
     }
     h1{
         border-bottom: none;
+    }
+    table{
+        display: block;
+    }
+    #person{
+        padding-top: 300px;
     }
 }
