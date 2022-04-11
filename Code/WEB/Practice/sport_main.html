@@ -4,47 +4,7 @@
         <meta charset="utf-8">
         <title>Sport_Main</title>
         <link rel="stylesheet" href="style.css">
-        <script>
-            function dayNightHandler(self){
-                var target=document.querySelector('body');
-                var border=document.getElementById('grid');
-                var border1=document.getElementById('content');
-                var border2=document.querySelector('h1');
-                var border3=document.querySelector('ul');
-                if(self.value==='night')
-                {
-                    target.style.backgroundColor='black';
-                    target.style.color='white';
-                    border.style.borderBlockColor='white';
-                    //border1.style.borderBlockColor='white';
-                    border2.style.borderBlockColor='white';
-                    border3.style.borderRightColor='white';
-                    self.value='day';
-                
-                    var alist=document.querySelectorAll('a');
-                    var i=0;
-                        while(i<alist.length){
-                            alist[i].style.color='powderblue';
-                            i++;
-                        }
-                }else{
-                    target.style.backgroundColor='white';
-                    target.style.color='black';
-                    border.style.borderBlockColor='black';
-                    //border1.style.borderBlockColor='black';
-                    border2.style.borderBlockColor='black';
-                    border3.style.borderRightColor='black';
-                    self.value='night';
-                
-                    var alist=document.querySelectorAll('a');
-                    var i=0;
-                        while(i<alist.length){
-                            alist[i].style.color='black';
-                            i++;
-                        }
-                }
-            }
-        </script>
+        <script src="DarkMode.js"></script>
     </head>
     <body>
         <input type="button" value="night" onclick="
