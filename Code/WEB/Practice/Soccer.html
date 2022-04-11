@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>Soccer</title>
         <link rel="stylesheet" href="style.css">
+        <script type="text/javascript"></script>
+        <script src="Hide_Show.js"></script>
     </head>
     <body>
         <h1><a href="sport_main.html">Sport_Main</a></h1>
@@ -13,14 +15,15 @@
                 <li><a href="table.html">순위표</a></li>
             </ul>
             <div class="issue">
-                <h2>실시간 이슈</h2>
+                <h2><a href="javascript:resetDisplay(reset);">실시간 이슈</a></h2>
                 <ol>
-                    <li>리버풀 vs 맨시티</li>
-                    <li>손흥민 해트트릭</li>         
-                    <li>아스날 니가가라 챔스</li>
+                    <li><a href="javascript:firstDisplay(first);">리버풀 vs 맨시티</a></li>
+                    <li><a href="javascript:secondDisplay(second);">손흥민 해트트릭</a></li>         
+                    <li><a href="javascript:thirdDisplay(third);">아스날 니가가라 챔스</a></li>
                 </ol>
             </div>
         </div>
+        <div id="first" style="display: none;">
             <h2 class="subject">리버풀 vs 맨시티</h2>
             <div id="content">
                 <img src ="image/liverpool.jpg" width="200px" height="200px"</img>
@@ -34,7 +37,8 @@
                 된 두 팀은 일주일에 두 번의 맞대결을 치를 예정이다.
                 </p>
             </div>
-
+        </div>
+        <div id="second"style="display: none;">
         <h2 class="subject">손흥민 해트트릭</h2>
             <div id="content">
                 <img src ="image/son.jpg" width="200px" height="200px"</img>
@@ -46,7 +50,8 @@
                 골로 연결했다.
                 </p>
             </div>
-
+        </div>
+        <div id="third"style="display: none;">
         <h2 class="subject">아스날 니가가라 챔스</h2>
             <div id="content">
                 <img src ="image/5senal.jpg" width="200px" height="200px"</img>
@@ -58,5 +63,6 @@
                 때에 맞춰 돌파한 트로 사르의 슈팅을 허용하며 선제골을 내줬다.
                 </p>
             </div>
+        </div>
     </body>
 </html>
