@@ -19,14 +19,15 @@
                 <li><a href="table.html">순위표</a></li>
             </ul>
             <div class="issue">
-                <h2><a href="javascript:resetDisplay();">실시간 이슈</a></h2>
+                <h2><a href="#" onclick="display_off()">실시간 이슈</a></h2>
                 <ol>
-                    <li><a href="javascript:firstDisplay();">리버풀 vs 맨시티</a></li>
-                    <li><a href="javascript:secondDisplay();">손흥민 해트트릭</a></li>         
-                    <li><a href="javascript:thirdDisplay();">아스날 니가가라 챔스</a></li>
+                    <li><a href="#" onclick="display_on(1)">리버풀 vs 맨시티</a></li>
+                    <li><a href="#" onclick="display_on(2)">손흥민 해트트릭</a></li>         
+                    <li><a href="#" onclick="display_on(3)">아스날 니가가라 챔스</a></li>
                 </ol>
             </div>
         </div>
+        <div id="reset">
         <div id="first" style="display: none;">
             <h2 class="subject">리버풀 vs 맨시티</h2>
             <div id="content">
@@ -68,5 +69,6 @@
                 </p>
             </div>
         </div>
+    </div>
     </body>
 </html>

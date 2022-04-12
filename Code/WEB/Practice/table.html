@@ -19,13 +19,14 @@
                 <li><a href="table.html">순위표</a></li>
             </ul>
             <div class="issue">
-                <h2>순위표</h2>
+                <h2><a href="#" onclick="display_off()">순위표</a></h2>
                 <ol>
-                    <li><a href="javascript:firstDisplay(first);">팀순위</a></li>
-                    <li><a href="javascript:secondDisplay(second);">개인 순위</a></li>         
+                    <li><a href="#" onclick="display_on(1)">팀순위</a></li>
+                    <li><a href="#" onclick="display_on(2)">개인 순위</a></li>         
                 </ol>
             </div>
         </div>
+        <div id="reset">
         <div id="first" style="display: none;">    
         <div id="content">
                 <h2 class="subject">팀순위</h2>
@@ -175,7 +176,8 @@
                     <td align="center">85회</td>  
                 </tr>
             </table>
+            </div>
         </div>
-        </div>
+    </div>
     </body>
 </html>
