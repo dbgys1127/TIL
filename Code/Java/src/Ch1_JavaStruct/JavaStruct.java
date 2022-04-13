@@ -14,8 +14,7 @@ public class JavaStruct{
 		char a='?';
 		System.out.println(s);//println은 자동 줄바꿈이 된다.
 		System.out.print(a);//print는 줄바꿈이 안된다.
-		System.out.println("Hello");
+		System.out.println("hello");
 		
 	}
-	
 }
