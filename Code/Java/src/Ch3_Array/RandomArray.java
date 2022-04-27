@@ -15,7 +15,7 @@ public class RandomArray {
 			RandomNum=(int)(Math.random()*100+1);
 			RandomArray[i]=RandomNum;// 5¹øÂ°
 			for(int j=0;j<i;j++) {
-				if(RandomArray[j]==RandomNum) {
+				if(RandomArray[j]==RandomArray[i]) {
 					i--;
 					break;
 				}
