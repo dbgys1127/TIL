@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.Scanner;
 
 public class AlphabetHistogramApp{
@@ -22,7 +21,7 @@ public class AlphabetHistogramApp{
 			for(int j=0;j<alpha[i];j++) {
 				count++;
 			}
-			System.out.print(count);
+			System.out.print(count+"개");
 			System.out.println();
 		}
 	}
@@ -38,7 +37,7 @@ public class AlphabetHistogramApp{
 		}
 	}
 	public String readString() {
-		System.out.println("영문장을 입력하고 세미콜론으로 끝내세요.");
+		System.out.println("영문장 작성하고 세미콜론입력하세요.");
 		Scanner Scan=new Scanner(System.in);
 		StringBuffer sb=new StringBuffer();
 		while(true) {

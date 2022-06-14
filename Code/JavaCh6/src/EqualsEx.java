@@ -20,7 +20,7 @@ public class EqualsEx {
 			System.out.println("a==b");
 		}
 		if(a.equals(b)) {
-			System.out.println("a is equal to b");
+			System.out.println("a is 는 가나다라 to b");
 		}
 		if(a.equals(c)) {
 			System.out.println("a is equal to c");
