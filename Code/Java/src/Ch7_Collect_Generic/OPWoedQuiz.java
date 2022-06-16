@@ -47,26 +47,26 @@ public class OPWoedQuiz {
 	public static void main(String[]args) {
 		OPWoedQuiz G=new OPWoedQuiz();
 		Vector<OPWord> v = new Vector<OPWord>();
-		v.add(new OPWord("love","»ç¶û"));
-		v.add(new OPWord("animal","µ¿¹°"));
-		v.add(new OPWord("stock","ÁÖ½Ä"));
-		v.add(new OPWord("clock","½Ã°è"));
-		v.add(new OPWord("pencil","¿¬ÇÊ"));
-		v.add(new OPWord("father","¾Æºü"));
-		v.add(new OPWord("mother","¾ö¸¶"));
-		v.add(new OPWord("book","Ã¥"));
-		v.add(new OPWord("baby","¾Æ±â"));
-		v.add(new OPWord("life","ÀÎ»ı"));
-		v.add(new OPWord("eye","´«"));
-		v.add(new OPWord("car","ÀÚµ¿Â÷"));
-		v.add(new OPWord("ship","¹è"));
-		v.add(new OPWord("house","Áı"));
-		v.add(new OPWord("mirror","°Å¿ï"));
-		v.add(new OPWord("rain","ºñ"));
-		v.add(new OPWord("sun","ÅÂ¾ç"));
+		v.add(new OPWord("love","ì‚¬ë‘"));
+		v.add(new OPWord("animal","ë™ë¬¼"));
+		v.add(new OPWord("stock","ì£¼ì‹"));
+		v.add(new OPWord("clock","ì‹œê³„"));
+		v.add(new OPWord("pencil","ì—°í•„"));
+		v.add(new OPWord("father","ì•„ë¹ "));
+		v.add(new OPWord("mother","ì—„ë§ˆ"));
+		v.add(new OPWord("book","ì±…"));
+		v.add(new OPWord("baby","ì•„ê¸°"));
+		v.add(new OPWord("life","ì¸ìƒ"));
+		v.add(new OPWord("eye","ëˆˆ"));
+		v.add(new OPWord("car","ìë™ì°¨"));
+		v.add(new OPWord("ship","ë°°"));
+		v.add(new OPWord("house","ì§‘"));
+		v.add(new OPWord("mirror","ê±°ìš¸"));
+		v.add(new OPWord("rain","ë¹„"));
+		v.add(new OPWord("sun","íƒœì–‘"));
 		
-		System.out.println("<¸íÇ°¿µ¾î> ´Ü¾îÅ×½ºÆ®¸¦ ½ÃÀÛÇÕ´Ï´Ù. '-1' ÀÔ·Â½Ã Á¾·áµË´Ï´Ù.");
-		System.out.println("ÇöÀç "+v.size()+"°³ ´Ü¾î°¡ ÀÖ½À´Ï´Ù.");
+		System.out.println("ëª…í’ˆì˜ì–´ ë‹¨ì–´ í…ŒìŠ¤íŠ¸ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤. -1ì„ ì…ë ¥í•˜ë©´ ì¢…ë£Œí•©ë‹ˆë‹¤.");
+		System.out.println("í˜„ì¬ "+v.size()+"ê°œì˜ ë‹¨ì–´ê°€ ë“¤ì–´ìˆìŠµë‹ˆë‹¤");
 
 		
 		while(true) {
@@ -89,9 +89,9 @@ public class OPWoedQuiz {
 			System.out.print(" :>>>");
 			int User = Scan.nextInt();
 			int UserAnswer=User-1;
-			if(User==-1) {System.out.println("Á¾·áÇÕ´Ï´Ù.");break;}
+			if(User==-1) {System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤..");break;}
 			if(UserAnswer==G.Ifcorrect()) System.out.println("Great!!!");
-			else System.out.println("No ¤Ì¤Ì");
+			else System.out.println("No !!");
 		}
 	}
 }
