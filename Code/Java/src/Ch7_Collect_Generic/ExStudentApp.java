@@ -40,8 +40,13 @@ public class ExStudentApp {
             String name = Scan.next();
             if(name.equals("그만")) {System.out.println("종료합니다.");break;}
             for(i=0;i<Student.length;i++) {
-                if (Student[i].getName().equals(name)) {
-                    System.out.println(Student[i].getName() + ", " + Student[i].getMajor() + ", " + Student[i].getGrade() + ", " + Student[i].getScore());
+                ExStudent b = Game.get(i);
+                String name1 = b.getName();
+                String major = b.getMajor();
+                String grade = b.getGrade();
+                String score = b.getScore();
+                if (name1.equals(name)) {
+                    System.out.println(name1 + ", " + major + ", " + grade + ", " + score);
                     break;
                 }
             }
