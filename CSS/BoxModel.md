@@ -40,3 +40,8 @@
         }
       }
     ```
+
+## 참고 및 연습
+W3C: <a href="https://www.w3schools.com/css/exercise.asp?filename=exercise_boxmodel3" target="_blank">W3C CSS연습</a>
+<br>
+셀렉터 연습: <a href="https://codestates.github.io/sw-checkpoint-css-selector-deploy/" target="_blank">셀렉터 연습</a>

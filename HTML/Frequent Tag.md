@@ -162,3 +162,7 @@ HTML에는 다양한 태그들이 있지만, 그 중 Web에서 가장 많이 쓰
     - type = "radio"는 체크박스와 다르게 여러개 중 하나만 선택가능하다. 체크 박스는 여러개 선택 가능하다. `이때 옵션들을 name="그룹명"으로 같은 그룹에 묶어야 둘중 하나 선택이 적용된다.`
 - textarea : 줄바꿈이 되는 입력폼이다.
 - button
+## 그외 참고할 만한 것
+<a href="https://heropy.blog/2019/05/26/html-elements/">한눈에 보는 HTML 요소</a>
+<br>
+W3C: <a href="https://www.w3schools.com/html/html_exercises.asp" target="_blank">HTML 연습</a>
