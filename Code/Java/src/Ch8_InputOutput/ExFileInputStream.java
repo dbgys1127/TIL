@@ -1,13 +1,13 @@
 package Ch8_InputOutput;
 import java.io.*;
 
-public class FileInputStreamEx {
+public class ExFileInputStream {
     public static void main(String[]args){
-        byte b[] = new byte[6];
-        try{
-            FileInputStream fin = new FileInputStream("C:\\Users\\kim\\Desktop\\TIL\\Code\\Java\\src\\Ch8_InputOutput\\FileOutputStream.out");
-            int n=0, c;
-            while((c=fin.read())!=-1){
+        byte [] b = new byte[2];
+        try {
+            FileInputStream fin = new FileInputStream("C:\\Users\\kim\\Desktop\\TIL\\Code\\Java\\src\\Ch8_InputOutput\\FileOutputStreamTest.dat");
+            int n = 0, c;
+            while ((c = fin.read()) != -1) {
                 b[n]=(byte)c;
                 n++;
             }
@@ -18,7 +18,7 @@ public class FileInputStreamEx {
             System.out.println();
             fin.close();
         }catch (IOException e){
-            System.out.println("경로면을 체크 해보세요.");
+            System.out.println("경로명을 확인해주세요.");
         }
     }
 }

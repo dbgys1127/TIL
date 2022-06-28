@@ -11,6 +11,7 @@
     background-color: lightyellow;
     overflow-x: auto;
     overflow-y: auto  ;
+    font-variant: small-caps;
   }
 h1 {
   font-weight: 300;

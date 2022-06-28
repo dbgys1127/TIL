@@ -1,11 +1,12 @@
 package Ch8_InputOutput;
 import java.io.*;
-public class ExFileReader {
+
+public class ExFileReader{
     public static void main(String[]args){
         FileReader fin = null;
         try{
-            fin=new FileReader("c:\\windows\\system.ini");
             int c;
+            fin = new FileReader("c:\\windows\\system.ini");
             while((c=fin.read())!=-1){
                 System.out.print((char)c);
             }

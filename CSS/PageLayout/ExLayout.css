@@ -1,0 +1,33 @@
+/*main {
+    width: 400px;
+    height: 400px;
+    display: flex;*/
+    /*flex-wrap: wrap;*/
+    flex-direction : row;
+    border: 1px dotted red;
+    /*justify-content: space-around;*/
+    align-items: stretch;
+}
+div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid green;
+}
+* { 
+    margin: 10px;
+    padding: 10px;
+}
+#box1 {
+    flex-grow: 0;
+    flex-basis: 50px;
+}
+#box2 {
+    flex-grow: 0;
+}
+#box3 {
+    flex-grow: 0;
+}
+.f {display:flex}
+.f div {border:1px solid}
+.zero {flex-basis: 0}
+.auto {flex-basis: auto}
