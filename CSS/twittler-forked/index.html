@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>twittler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript"></script>
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+  </head>
+  <body>
+    <!-- 여기에 HTML 구조를 작성하세요. 아래 코드는 예제이며, 얼마든지 바꿀 수 있습니다 -->
+    <header>
+      <a id="go-to-cos" href="https://codestates.com/"
+        ><img id="logo" src="cosicon.png"
+      /></a>
+      <h1 id="main-title">CoSBamboo</h1>
+      <img id="bambicon" src="bamb.png" />
+    </header>
+    <section id="writing-section">
+      <input
+        id="messageInput"
+        type="text"
+        placeholder="임금님 귀는 당나귀 귀!"
+      />
+    </section>
+    <div id="namebtn">
+      <input id="usernameInput" type="text" placeholder="이름 쓰지마세요" />
+      <button id="tweetButton">spit!</button>
+    </div>
+    <div id="reload-bar">
+      <button id="randomButton">
+        <img id="reload-icon" src="reficon.png" />
+        check new tweets
+      </button>
+    </div>
+
+    <!-- Tweet lists -->
+    <section id="tweetlist" class="white"></section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
