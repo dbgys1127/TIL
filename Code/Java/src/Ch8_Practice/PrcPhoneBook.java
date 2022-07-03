@@ -11,16 +11,17 @@ import java.io.*;
 public class PrcPhoneBook {
     public static void main(String[]args){
         Scanner Scan=new Scanner(System.in);
-        FileWriter fout;
+        FileOutputStream fout;
+        byte[] bytes;
         try{
-            fout=new FileWriter("C:\\Users\\kim\\Desktop\\TIL\\Code\\Java\\src\\Ch8_Practice\\pracPhoneBook");
+            fout=new FileOutputStream("C:\\Users\\kim\\Desktop\\TIL\\Code\\Java\\src\\Ch8_Practice\\Files\\pracPhoneBook.txt");
             System.out.println("전화번호부 입니다.");
             while(true){
                 System.out.print("이름 전화번호 >> ");
-                String phonebook = Scan.nextLine();
-                if(phonebook.equals("그만")) break;
-                fout.write(phonebook+"\r\n");
-
+                String phone = Scan.nextLine();
+                if(phone.equals("그만"))break;
+                bytes = phone.getBytes();
+                fout.write(bytes);
             }
             System.out.println("저장되었습니다.");
             fout.close();
