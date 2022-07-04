@@ -1,7 +1,15 @@
 package CodeStatesString;
 import java.util.*;
-public class ExCompareTo {
-    public static void main(String[] args){
+class ExCompareTo {
+    public static int convertToNumber(char character) {
+        int result;
+        // TODO: 여기에 코드를 작성합니다.
+        result = (int)character;
+        //하단의 코드는 수정하지 말아야 합니다.
+        return result;
+    }
+
+    public static void main(String[] args) {
 //        String str = new String("abcd");
 //        System.out.println("문자열 : " + str);
 //        System.out.println(str.compareTo("bcef"));
@@ -46,30 +54,15 @@ public class ExCompareTo {
 //        System.out.println(str.delete(4, 8));
 //        System.out.println(str.deleteCharAt(1));
 //        System.out.println("deleteCharAt() 메소드 호출 후 문자열 : " + str);
-        StringBuffer str = new StringBuffer("Java Programming!!");
-        System.out.println("문자열 : " + str);
-        System.out.println(str.insert(4, "Script"));
-        System.out.println("insert() 메서드 호출 후 문자열 : " + str);
+//        StringBuffer str = new StringBuffer("Java Programming!!");
+//        System.out.println("문자열 : " + str);
+//        System.out.println(str.insert(4, "Script"));
+//        System.out.println("insert() 메서드 호출 후 문자열 : " + str);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.print(convertToNumber('9'));
     }
 }
+
+
+
+
