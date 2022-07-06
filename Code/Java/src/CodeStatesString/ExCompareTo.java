@@ -1,13 +1,13 @@
 package CodeStatesString;
 import java.util.*;
 class ExCompareTo {
-    public static int convertToNumber(char character) {
-        int result;
-        // TODO: 여기에 코드를 작성합니다.
-        result = (int)character;
-        //하단의 코드는 수정하지 말아야 합니다.
-        return result;
-    }
+//    public static int convertToNumber(char character) {
+//        int result;
+//        // TODO: 여기에 코드를 작성합니다.
+//        result = (int)character;
+//        //하단의 코드는 수정하지 말아야 합니다.
+//        return result;
+//    }
 
     public static void main(String[] args) {
 //        String str = new String("abcd");
@@ -59,7 +59,12 @@ class ExCompareTo {
 //        System.out.println(str.insert(4, "Script"));
 //        System.out.println("insert() 메서드 호출 후 문자열 : " + str);
 
-        System.out.print(convertToNumber('9'));
+//        System.out.print(convertToNumber('9'));
+        int [][] kcal = new int [2][3];
+        kcal[0]={111,222,333};
+        kcal[1]={444,555,666};
+        System.out.println(Arrays.toString(kcal));
+        System.out.println(Arrays.toString(kcal[0]));
     }
 }
 

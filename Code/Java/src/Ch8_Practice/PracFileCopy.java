@@ -29,6 +29,5 @@ public class PracFileCopy {
         }catch (IOException e){
             System.out.println("복사실패");
         }
-
     }
 }

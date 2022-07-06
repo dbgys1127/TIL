@@ -32,7 +32,6 @@ public class PracFileCopyVer2 {
                     System.out.print("*");
                     progress=0;
                 }
-
             }
             srcStream.close();
             destStream.close();
