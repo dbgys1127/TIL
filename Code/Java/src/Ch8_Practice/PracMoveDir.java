@@ -50,8 +50,12 @@ public class PracMoveDir {
                     break;
                 case "rename":
                     File f = new File(mainDir.getPath() + "\\" + renameBox[1]);
-                    f.renameTo(new File(mainDir.getPath() + "\\" + renameBox[2]));
-                    break;
+                    try {
+                        f.renameTo(new File(mainDir.getPath() + "\\" + renameBox[2]));
+                        break;
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        System.out.println("바뀔대상과 바뀔이름을 정확히 입력하세요.");
+                    }
                 case "mkdir":
                     File mkf = new File(mainDir.getPath() + "\\" + renameBox[1]);
                     if (!mkf.exists()) {
