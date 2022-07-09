@@ -51,7 +51,7 @@ public class PracHangman {
         if((originWord.toUpperCase().charAt(firstIndex)!=userInput.toUpperCase().charAt(0))&&(originWord.toUpperCase().charAt(secondIndex)!=userInput.toUpperCase().charAt(0))){
             return false;
         }
-        if(tmp==userInput.charAt(0)) {
+        if(tmp==userInput.charAt(0)&&originWord.toUpperCase().charAt(firstIndex)!=originWord.toUpperCase().charAt(secondIndex)) {
             return false;
         }
         return true;
