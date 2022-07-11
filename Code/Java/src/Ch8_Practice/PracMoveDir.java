@@ -23,12 +23,12 @@ public class PracMoveDir {
         String type = "dir";
         String name = null;
         long size =0;
-        for(int i=0;i<storeDir.length;i++){
-            if(storeDir[i].isFile()){
+        for(int i=0;i<storeDir.length;i++){//->POINT2
+            if(storeDir[i].isFile()){//->POINT3
                 type = "file";
             }
-            size = storeDir[i].length();
-            name = storeDir[i].getName();
+            size = storeDir[i].length();//->POINT4
+            name = storeDir[i].getName();//->POINT5
             System.out.println(type+" \t"+size+"바이트\t"+name);
         }
     }
@@ -36,37 +36,37 @@ public class PracMoveDir {
     public  void run(){
         while(true) {
             System.out.print(">> ");
-            String userInput = Scan.nextLine();
-            String[] renameBox = userInput.split(" ");
+            String userInput = Scan.nextLine();//->POINT6
+            String[] renameBox = userInput.split(" ");//->//->POINT7
 
             if (userInput.equals("그만")) {
                 System.out.println("종료합니다.");
                 break;
             }
 
-            switch (renameBox[0]) {
-                case "..":
+            switch (renameBox[0]) {//->POINT7
+                case ".."://->POINT10
                     maindir = maindir.replaceAll(mainDir.getName(), "");
                     break;
-                case "rename":
-                    File f = new File(mainDir.getPath() + "\\" + renameBox[1]);
+                case "rename"://->POINT11
+                    File f = new File(mainDir.getPath() + "\\" + renameBox[1]);//->POINT12
                     try {
-                        f.renameTo(new File(mainDir.getPath() + "\\" + renameBox[2]));
+                        f.renameTo(new File(mainDir.getPath() + "\\" + renameBox[2]));//->POINT13
                         break;
                     }catch (ArrayIndexOutOfBoundsException e){
-                        System.out.println("바뀔대상과 바뀔이름을 정확히 입력하세요.");
+                        System.out.println("바뀔대상과 바뀔이름을 정확히 입력하세요.");//->POINT14
                     }
                 case "mkdir":
-                    File mkf = new File(mainDir.getPath() + "\\" + renameBox[1]);
-                    if (!mkf.exists()) {
-                        mkf.mkdir();
+                    File mkf = new File(mainDir.getPath() + "\\" + renameBox[1]);//->POINT15
+                    if (!mkf.exists()) {//->POINT16
+                        mkf.mkdir();//->POINT16
                     }
                     break;
                 default:
-                    maindir += userInput + "\\";
+                    maindir += userInput + "\\";//->POINT9
             }
-            mainDir = new File(maindir);
-            try{
+            mainDir = new File(maindir);//->POINT8
+            try{//->POINT17
                 storeDir = mainDir.listFiles();
                 System.out.println("[" + mainDir.getPath() + "]");
                 String type = null;
@@ -84,12 +84,11 @@ public class PracMoveDir {
                  }
              }catch (NullPointerException e){
                 System.out.println("검색어를 다시 입력하시오.");
-            }
+            }//->POINT18
         }
     }
     public static void main(String[] args) {
         PracMoveDir Game = new PracMoveDir();
         Game.run();
     }
-
 }
