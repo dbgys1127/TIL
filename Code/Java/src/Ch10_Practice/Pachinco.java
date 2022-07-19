@@ -1,65 +1,67 @@
 package Ch10_Practice;
+import Ch9_Prac_GUI_AWT_Swing.PracStartSwing;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class Pachinco extends JFrame {
     public Pachinco(){
-        setTitle("Pachinco");
+        setTitle("Paccinco");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         setContentPane(new GamePanel());
 
-        setSize(300,200);
-        setVisible(true);
-
         getContentPane().setFocusable(true);
         getContentPane().requestFocus();
+        setSize(400,200);
+        setVisible(true);
     }
     class GamePanel extends JPanel{
-        private JLabel [] label = new JLabel[3];
-        private JLabel result = new JLabel("시작합니다.");
-        public GamePanel() {
+        JLabel [] la = new JLabel[3];
+        JLabel result = new JLabel("시작합니다.");
+        public GamePanel(){
             setLayout(null);
-            for (int i = 0; i < label.length; i++) {
-                label[i] = new JLabel("0");
-                label[i].setSize(60, 30);
-                label[i].setLocation(30 + 80 * i, 50);
-                label[i].setHorizontalAlignment(JLabel.CENTER);
-                label[i].setOpaque(true);
-                label[i].setBackground(Color.MAGENTA);
-                label[i].setForeground(Color.YELLOW);
-                label[i].setFont(new Font("Tahoma", Font.ITALIC, 30));
-                add(label[i]);
+            for(int i =0;i<la.length;i++){
+                la[i] = new JLabel("0");
+                la[i].setSize(60,30);
+                la[i].setLocation(30+80*i,50);
+                la[i].setHorizontalAlignment(JLabel.CENTER);
+                la[i].setOpaque(true);
+                la[i].setBackground(Color.MAGENTA);
+                la[i].setForeground(Color.YELLOW);
+                la[i].setFont(new Font("Tahoma",Font.ITALIC,30));
+                add(la[i]);
             }
-            result.setSize(200, 20);
-            result.setLocation(100, 120);
+            result.setSize(200,20);
+            result.setLocation(100,120);
             add(result);
-
-            addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    if (e.getKeyChar() == '\n') {
-                        int x1 = (int) (Math.random() * 5);
-                        label[0].setText(Integer.toString(x1));
-                        int x2 = (int) (Math.random() * 5);
-                        label[1].setText(Integer.toString(x2));
-                        int x3 = (int) (Math.random() * 5);
-                        label[2].setText(Integer.toString(x3));
-                        if (x1 == x2 && x2 == x3)
-                            result.setText("축합합니다!!!");
-                        else
-                            result.setText("아쉽군요.");
-                    }
+            addKeyListener(new ma());
+            addMouseListener(new mamo());
+        }
+        class ma extends KeyAdapter{
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode()==KeyEvent.VK_ENTER){
+                    int x1 = (int)(Math.random()*5);
+                    la[0].setText(Integer.toString(x1));
+                    int x2 = (int)(Math.random()*5);
+                    la[1].setText(Integer.toString(x2));
+                    int x3 = (int)(Math.random()*5);
+                    la[2].setText(Integer.toString(x3));
+                    if(x1==x2 &&x1==x3)
+                        result.setText("축하");
+                    else
+                        result.setText("아쉽");
                 }
-            });
-            addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    Component c = (Component) e.getSource();
-                    c.requestFocus();
-                }
-            });
+            }
+        }
+        class mamo extends MouseAdapter{
+            @Override
+            public void mousePressed(MouseEvent e) {
+                Component c = (Component)e.getSource(); // ���콺�� Ŭ���� ������Ʈ
+                c.requestFocus(); // ���콺�� Ŭ���� ������Ʈ���� ��Ŀ�� ����
+            }
         }
     }
     public static void main(String[] args) {
