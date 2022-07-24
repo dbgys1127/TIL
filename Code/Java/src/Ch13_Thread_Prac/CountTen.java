@@ -1,7 +1,12 @@
 package Ch13_Thread_Prac;
+
+import java.awt.*;
 import java.util.Scanner;
 
 class CountTenThread implements Runnable{
+    String name;
+
+
     @Override
     public void run() {
         int n = 1;
