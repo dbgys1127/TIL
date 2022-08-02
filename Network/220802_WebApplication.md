@@ -23,7 +23,7 @@
 - 스토어에 승인 받기가 어렵고 비용이 발생한다.
 
 ## Web Application이란?
-<br><img src="img/webapp.png" width="450px" height="300px"></img><br/>
+<br><img src="img/webApp.png" width="450px" height="300px"></img><br/>
 - `정적인 웹사이트의 한계를 벗어나` 다양한 `동적 응답`을 웹브라우저라는 소프트웨어를 통해 가능케 한 애플리케이션이다.
 - 쉽게 말해, 웹사이트는 웹페이지라는 정적인 데이터의 모음이다.
 - 웹 어플리케이션은 사용자와 웹이 대화가 가능케 한 것이다.
