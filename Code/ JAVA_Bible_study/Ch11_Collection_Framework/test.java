@@ -1,39 +1,59 @@
 package Ch11_Collection_Framework;
 import java.util.*;
 public class test {
-    public int numberSearch(String str) {
+    public String compressString(String str) {
         // TODO:
         // 문제개요
-        // 입력받은 str에서 숫자들의 합이 분자가 된다.
-        // 입력받은 str에서 숫자와 공백을 제외가 문자열의 길이를 분모로 한다.
-        // 둘을 나눈 값을 리턴한다.
+        // 문자열을 입력받아 연속되는 문자가 3번이상 반복되면
+        // 1개로 압축시킨다. aaaaaabbccc->abbc
+        // 1~2개는 압축이 안된다.
+        // 빈 문자열은 빈문자열을 리턴한다.
+        // 문자를 쪼개서 배열에 저장하고, 같은 것에 대한 카운트를 한다.
 
         // 수도코드
-        // 1. 빈 문자열은 0을 리턴한다.
-        if(str.length()==0)
-            return 0;
+        // 1. 문자 배열을 만든다.
+        char [] storage = new char [str.length()];
+        String result ="";
+        // 2. 카운트용 변수를 만든다.
+        int count = 1;
 
-        // 2. 분자는 어떻게 구할까?
-        // 2-1.문자열을 charAt해서 그것이 아스키 코드 상 48<=x<=57 사이에 있는지 판단해서 그렇다면,
-        // 2-2. sum 변수에 Character.getNumericValue(char)를 += 한다.
-        int sum = 0;
-        for(int i=0; i<str.length();i++){
-            char ch = str.charAt(i);
-            if(48<=ch && ch<=57)
-                sum += Character.getNumericValue(ch);
+        // 3. 빈문자열은 빈 문자로 반환
+        if(str.length()==0)
+            return "";
+
+        // 4. 배열에 str을 char단위로 쪼게자
+        for(int i=0;i<str.length();i++)
+            storage[i]=str.charAt(i);
+
+        String tmp ="";
+        // 5. 압축과 관련된 반복문을 만든다.
+        for(int i=1;i<storage.length;i++){
+            tmp+=storage[i-1];
+            if(storage[i-1]==storage[i]){
+                ++count;
+                if(i==storage.length-1){
+                    result+=tmp+storage[i];
+                }
+            }else{
+                if(count>=3){
+                    result+=String.valueOf(count)+storage[i-1];
+                    count=1;
+                    tmp="";
+                }else{
+                    if(i==storage.length-1){
+                        result+=storage[i];
+                    }
+                    result+=tmp;
+                    count=1;
+                    tmp="";
+                }
+            }
         }
-        // 3-1. 숫자와 공백을 모두 문자열에서 뺀다.
-        String resultStr = "";
-        resultStr = str.replaceAll("[0-9]","");
-        resultStr = resultStr.replaceAll(" ","");
-        double strLen = resultStr.length();
-        double result = sum/strLen;
-        return (int)Math.round((result*10)/10.0);
+        return result;
     }
 
     public static void main(String[] args) {
         test t =new test();
-        t.numberSearch("Sou2bgPJkS7Lp5r2j6jeWOts8X");
-        System.out.println( t.numberSearch("Sou2bgPJkS7Lp5r2j6jeWOts8X"));
+        System.out.println( t.compressString("EQTWVOQQQVDVRC"));
     }
 }

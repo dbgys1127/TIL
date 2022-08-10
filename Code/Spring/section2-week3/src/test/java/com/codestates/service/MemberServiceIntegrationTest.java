@@ -22,11 +22,10 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
-    @Commit
     void 회원가입() {
         //given
         Member member = new Member();
-        member.setName("spring100000");
+        member.setName("spring100001fgff77");
 
         //when
         Long saveId = memberService.join(member);
