@@ -17,19 +17,24 @@ public class AppConfig {
 
     //@Bean memmberService -> new MemoryMemberRepository();
     //@Bean orderService -> new MemoryMemberRepository();
+
+    //memberRepository가 2번 호출되야 하는데 실제로 1번만 호출된다???? 왜그럴까???
     @Bean
     public MemberService memberService(){
         // 생성자 주입
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
-    public static MemberRepository memberRepository() {
+    public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(discountPolicy(), memberRepository());
     }
 
