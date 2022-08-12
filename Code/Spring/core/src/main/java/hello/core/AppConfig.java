@@ -14,6 +14,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+
+    //@Bean memmberService -> new MemoryMemberRepository();
+    //@Bean orderService -> new MemoryMemberRepository();
     @Bean
     public MemberService memberService(){
         // 생성자 주입
