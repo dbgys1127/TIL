@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
@@ -31,7 +32,8 @@ public class OrderServiceImpl implements OrderService{
     //@Autowired//생성자가 한개만 있으므로 생략가능
     //아래 대입하는 코드를 줄이기 위해 롬복을 쓴다.
     @Autowired
-    public OrderServiceImpl(/*@Qualifier("mainDiscountPolicy")*/ DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+    public OrderServiceImpl(/*@Qualifier("mainDiscountPolicy")*/
+            @MainDiscountPolicy DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         this.discountPolicy = discountPolicy; // 빈이 두개가 등록되어있으면, 필드명이나, 파라미터 이름이 같은걸로 대입한다. -> fixDiscountPolicy
         this.memberRepository = memberRepository;
     }
