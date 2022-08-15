@@ -1,5 +1,10 @@
 package di.prac.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+
+import java.util.Optional;
+
 public class Member {
     private Long id;
     private String name;
@@ -34,4 +39,5 @@ public class Member {
     public void setGrade(Grade grade) {
         this.grade = grade;
     }
+
 }
