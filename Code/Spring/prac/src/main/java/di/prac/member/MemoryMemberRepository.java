@@ -1,8 +1,11 @@
 package di.prac.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
     // 메모리 저장소에는 map에 회원 아이디와 회원 객체 저장
