@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ResponseViewController {
+
     @RequestMapping("/response-view-v1")
     public ModelAndView responseViewV1(){
         ModelAndView mav = new ModelAndView("response/hello").addObject("data","hello!");
