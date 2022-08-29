@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "memberSaverServlet",urlPatterns = "/servlet/members/save")
-public class MemberSaverServlet extends HttpServlet {
+public class MemberSaveServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
