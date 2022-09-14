@@ -3,72 +3,59 @@ package Ch11_Collection_Framework.coplit;
 import java.util.*;
 
 public class Solution {
-    public int[][] rotateMatrix(int[][] matrix, int K) {
+    public int[] quickSort(int[] arr) {
         // TODO:
-        // 문제개요
-        // 정사각형 이차원 배열을 1회마다 90도씩 시계방향으로 꺽는 문제다.
-        // 근데 여기서, 90씩 일정한 방향이면,
-        // 4의 나머지에 따라 배열을 그룹화 할 수 있게된다.
-
-        // 수도 코드
-        if(matrix == null || matrix.length == 0) return matrix;
-        // 1. K를 4로 나눈 나머지를 저장하는 변수를 만든다.
-        int group = K%4;
-        // 2. 행열을 구해주는 함수로 보낸후 거기서 받은 값으로 제출한다.
-        return rotateRectangle(matrix,group);
+        // [5,4,3,2,1],0,4
+        return pivot_sort(arr, 0,arr.length-1);
     }
-    public int[][] rotateRectangle(int[][]matrix,int group){
-        int[][] resultMatrix = new int [matrix.length][matrix[0].length];
 
-        switch(group){
-            case 0: return matrix;
-            case 1:
-                for(int i=0;i<matrix.length;i++){
-                    int k = matrix[0].length-1;
-                    for(int j=0;j<matrix[0].length;j++){
-                        resultMatrix[i][j]=matrix[k][i];
-                        k--;
-                    }
-                }
-                break;
-            case 2:
-                int l = matrix.length-1;
-                for(int i=0;i<matrix.length;i++){
-                    int k = matrix[0].length-1;
-                    for(int j=0;j<matrix[0].length;j++){
-                        resultMatrix[i][j]=matrix[l][k];
-                        k--;
-                    }
-                    l--;
-                }
-                break;
-            case 3:
-                int q = matrix.length-1;
-                for(int i=0;i<matrix.length;i++){
-                    for(int j=0;j<matrix[0].length;j++){
-                        resultMatrix[i][j]=matrix[j][q];
-                    }
-                    q--;
-                }
-                break;
+    public int[] pivot_sort(int [] arr, int low, int high){
+        if(low>=high){
+            return arr;
         }
-        return resultMatrix;
+
+        int pivot = partition(arr,low,high);
+
+        pivot_sort(arr,low,pivot-1);
+        pivot_sort(arr,pivot+1,high);
+
+        return arr;
     }
+
+    public static int partition(int [] arr, int left, int right){
+        int low = left; //0
+        int high = right;//4 2
+        int pivot = arr[left];//5 4
+
+        while(low<high){
+
+            while(arr[high]>pivot&&low<high){
+                high--;
+            }
+
+            while(arr[low]<=pivot&&low<high){
+                low++;
+            }
+            swap(arr,low,high);
+        }
+        swap(arr,left,low);
+
+        return low;
+    }
+
+    public static int [] swap(int[]arr, int i,int j){
+        int temp = arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        return arr;
+        }
+
     public static void main(String[] args) {
         Solution test = new Solution();
-        int[][] matrix = new int[][]{
-                {1, 2, 3, 4},
-                {5, 6, 7, 8},
-                {9, 10, 11, 12},
-                {13, 14, 15, 16}
-        };
-        int K =121;
-        int[][] result = test.rotateMatrix(matrix, K);
+        int[] arr = new int[]{5,3,8,9,2,4,7};
+        int[] result = test.quickSort(arr);
         for(int i=0;i<result.length;i++){
-            for (int j = 0; j < result[0].length; j++) {
-                System.out.print(result[i][j]+" ");
-            }
-            System.out.println();
+            System.out.print(result[i]+" ");
         }
 
     }
