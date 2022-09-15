@@ -5,50 +5,42 @@ import java.util.*;
 public class Solution {
     public int[] quickSort(int[] arr) {
         // TODO:
-        // [5,4,3,2,1],0,4
-        return pivot_sort(arr, 0,arr.length-1);
+        return sort(arr,0,arr.length-1);
     }
-
-    public int[] pivot_sort(int [] arr, int low, int high){
-        if(low>=high){
+    public int[] sort(int[] arr, int left, int right){
+        if(left>=right){
             return arr;
         }
 
-        int pivot = partition(arr,low,high);
-
-        pivot_sort(arr,low,pivot-1);
-        pivot_sort(arr,pivot+1,high);
+        int pivot=partition(arr,left,right);
+        arr=sort(arr,left,pivot);
+        arr=sort(arr,pivot+1,right);
 
         return arr;
     }
+    public int partition(int[] arr, int left, int right){
+        int lo = left-1;
+        int hi = right+1;
+        int pivot = arr[(left+right)/2];
 
-    public static int partition(int [] arr, int left, int right){
-        int low = left; //0
-        int high = right;//4 2
-        int pivot = arr[left];//5 4
+        while(true){
+            do{
+                lo++;
+            }while(arr[lo]<pivot);
 
-        while(low<high){
+            do{
+                hi--;
+            }while(arr[hi]>pivot);
 
-            while(arr[high]>pivot&&low<high){
-                high--;
+            if(lo>=hi){
+                return hi;
             }
 
-            while(arr[low]<=pivot&&low<high){
-                low++;
-            }
-            swap(arr,low,high);
+            int temp = arr[lo];
+            arr[lo]=arr[hi];
+            arr[hi]=temp;
         }
-        swap(arr,left,low);
-
-        return low;
     }
-
-    public static int [] swap(int[]arr, int i,int j){
-        int temp = arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-        return arr;
-        }
 
     public static void main(String[] args) {
         Solution test = new Solution();
