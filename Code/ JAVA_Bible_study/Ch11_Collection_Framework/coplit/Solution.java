@@ -3,49 +3,34 @@ package Ch11_Collection_Framework.coplit;
 import java.util.*;
 
 public class Solution {
-    public int[] quickSort(int[] arr) {
+    public int[] insertionSort(int[] arr) {
         // TODO:
-        return sort(arr,0,arr.length-1);
-    }
-    public int[] sort(int[] arr, int left, int right){
-        if(left>=right){
-            return arr;
+        int target = 1;
+        int prev = 0;
+        for(int i=1;i<arr.length;i++){
+            arr=sort(arr,i-1,i);
         }
-
-        int pivot=partition(arr,left,right);
-        arr=sort(arr,left,pivot);
-        arr=sort(arr,pivot+1,right);
-
         return arr;
     }
-    public int partition(int[] arr, int left, int right){
-        int lo = left-1;
-        int hi = right+1;
-        int pivot = arr[(left+right)/2];
+    public int [] sort(int[] arr, int prev, int target){
+        if(prev<0)
+            return arr;
 
-        while(true){
-            do{
-                lo++;
-            }while(arr[lo]<pivot);
+        // 비교 로직
 
-            do{
-                hi--;
-            }while(arr[hi]>pivot);
-
-            if(lo>=hi){
-                return hi;
-            }
-
-            int temp = arr[lo];
-            arr[lo]=arr[hi];
-            arr[hi]=temp;
+        if(arr[prev]>arr[target]){
+            int tmp = arr[prev];
+            arr[prev]=arr[target];
+            arr[target]=tmp;
         }
+        sort(arr,prev-1,target-1);
+        return arr;
     }
 
     public static void main(String[] args) {
         Solution test = new Solution();
-        int[] arr = new int[]{5,3,8,9,2,4,7};
-        int[] result = test.quickSort(arr);
+        int[] arr = new int[]{-11,-10,2,20,29};
+        int[] result = test.insertionSort(arr);
         for(int i=0;i<result.length;i++){
             System.out.print(result[i]+" ");
         }
