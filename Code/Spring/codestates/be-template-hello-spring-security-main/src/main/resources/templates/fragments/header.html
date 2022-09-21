@@ -1,0 +1,24 @@
+﻿<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<!-- (1) 타임리프 HTML에서 인증정보나 권한 정보를 어떤 로직으로 처리하기 위해 sec 태그를 사용하기 위해 XML 네임스페이스를 지정 -->
+<body>
+<div align="right" th:fragment="header">
+    <a href="/members/register" class="text-decoration-none">회원가입</a> |
+    <span sec:authorize="isAuthenticated()">
+        <!-- (2) 현재 페이지에 접근한 사용자가 인증에 성공한 사용자인지 체크한다.-->
+                <span sec:authorize="hasRole('USER')">
+                    <!-- (3) USER권한 사용자에게만 화면이 보이게 한다.-->
+                    <a href="/members/my-page" class="text-decoration-none">마이페이지</a> |
+                </span>
+                <a href="/logout" class="text-decoration-none">로그아웃</a>
+        <!-- (4) 이미 2에서 권한있음을 확인했으므로, 로그아웃이 나오게 한다.-->
+                <span th:text="${#authentication.name}">홍길동</span>님
+        <!-- (5) 로그인에 성공한 username이 표시된다. -->
+            </span>
+
+    <span sec:authorize="!isAuthenticated()"> <!-- (6) 로그인 확인이 안되면 로그인 표시가 뜨게 한다. -->
+                <a href="/auths/login-form" class="text-decoration-none">로그인</a>
+            </span>
+</div>
+</body>
+</html>
