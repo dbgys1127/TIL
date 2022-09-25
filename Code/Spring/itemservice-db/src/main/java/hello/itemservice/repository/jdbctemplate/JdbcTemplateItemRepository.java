@@ -66,7 +66,7 @@ public class JdbcTemplateItemRepository implements ItemRepository {
     @Override
     public Optional<Item> findById(Long id) {
 
-        String sql = "select id, item_name,price,quantity from where id =?";
+        String sql = "select id, item_name,price,quantity from item where id =?";
         try {
             Item item = template.queryForObject(sql, itemRowMapper(), id);
             return Optional.of(item);// of일때는 null이면 안된다. ofNullable은 null도 괜찮
