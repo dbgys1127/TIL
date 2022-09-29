@@ -13,15 +13,14 @@ public class OrderServiceV3 {
     private final OrderRepositoryV3 orderRepository;
     private final LogTrace trace;
 
-    public void orderItem(String itemId){
-        TraceStatus status =null;
+    public void orderItem(String itemId) {
+        TraceStatus status = trace.begin("OrderService.orderItem()");
         try {
-            status = trace.begin("OrderService.orderItem()");
             orderRepository.save(itemId);
             trace.end(status);
-        }catch (Exception e){
-            trace.exception(status, e);
-            throw e;//예외를 꼭 다시 던져주어야 한다.
+        } catch (Exception e) {
+            trace.exception(status,e);
+            throw e; // 예외를 꼭 다시 던져주어야한다.
         }
     }
 }

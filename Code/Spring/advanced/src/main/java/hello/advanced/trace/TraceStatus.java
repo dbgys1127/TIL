@@ -11,12 +11,12 @@ public class TraceStatus {
         this.message = message;
     }
 
-    public TraceId getTraceId() {
-        return traceId;
-    }
-
     public Long getStartTimeMs() {
         return startTimeMs;
+    }
+
+    public TraceId getTraceId() {
+        return traceId;
     }
 
     public String getMessage() {
