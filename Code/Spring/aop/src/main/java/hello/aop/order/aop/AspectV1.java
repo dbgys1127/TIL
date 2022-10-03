@@ -8,9 +8,10 @@ import org.aspectj.lang.annotation.Aspect;
 @Slf4j
 @Aspect
 public class AspectV1 {
+    // hello.aop.order 패키지와 하위 패키지 적용
     @Around("execution(* hello.aop.order..*(..))")
-    public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable{
-        log.info("[log] {}", joinPoint.getSignature());// join point 시그니쳐
+    public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable {
+        log.info("[log] {}",joinPoint.getSignature());
         return joinPoint.proceed();
     }
 }

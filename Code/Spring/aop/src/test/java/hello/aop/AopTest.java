@@ -14,12 +14,13 @@ import org.springframework.context.annotation.Import;
 @Slf4j
 @SpringBootTest
 //@Import(AspectV1.class)
-//@Import(AspectV1.class)
+//@Import(AspectV2.class)
 //@Import(AspectV3.class)
 //@Import(AspectV4Pointcut.class)
 //@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
 @Import(AspectV6Advice.class)
 public class AopTest {
+
     @Autowired
     OrderService orderService;
 
@@ -27,17 +28,17 @@ public class AopTest {
     OrderRepository orderRepository;
 
     @Test
-    void appInfo(){
+    void aopInfo() {
         log.info("isAopProxy, orderService={}", AopUtils.isAopProxy(orderService));
         log.info("isAopProxy, orderRepository={}", AopUtils.isAopProxy(orderRepository));
     }
     @Test
-    void success(){
+    void success() {
         orderService.orderItem("itemA");
     }
     @Test
-    void exception(){
-        Assertions.assertThatThrownBy(()->orderService.orderItem("ex"))
+    void exception() {
+        Assertions.assertThatThrownBy(() -> orderService.orderItem("ex"))
                 .isInstanceOf(IllegalStateException.class);
     }
 }
