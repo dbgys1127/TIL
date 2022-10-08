@@ -2,9 +2,10 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalAmount;
 import java.util.Date;
 @Entity
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID")
@@ -13,12 +14,17 @@ public class Member {
     @Column(name = "USERNAME", nullable = false)
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn
+    private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Long getId() {
         return id;

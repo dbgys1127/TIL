@@ -3,15 +3,16 @@ package hellojpa;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Item {
+public class Child {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
 
-    private int price;
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
 
     public Long getId() {
         return id;
@@ -29,11 +30,11 @@ public abstract class Item {
         this.name = name;
     }
 
-    public int getPrice() {
-        return price;
+    public Parent getParent() {
+        return parent;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 }
