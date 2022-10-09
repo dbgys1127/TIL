@@ -3,9 +3,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAmount;
-import java.util.Date;
+import java.util.*;
+
 @Entity
-public class Member extends BaseEntity {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MEMBER_ID")
@@ -14,17 +15,27 @@ public class Member extends BaseEntity {
     @Column(name = "USERNAME", nullable = false)
     private String username;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn
-    private Team team;
+    //기간 Period
+    @Embedded
+    private Period wordPeriod;
 
-    public Team getTeam() {
-        return team;
-    }
+    //주소 address
+    @Embedded
+    private Address homeAddress;
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
+    @ElementCollection
+    @CollectionTable(name = "FAVORITE_FOOD",joinColumns = @JoinColumn(name="MEMBER_ID"))
+    @Column(name="FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<>();
+
+
+//    @ElementCollection
+//    @CollectionTable(name = "ADDRESS",joinColumns = @JoinColumn(name="MEMBER_ID"))
+//    private List<Address> addressHistory = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name="MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -42,24 +53,43 @@ public class Member extends BaseEntity {
         this.username = username;
     }
 
+    public Period getWordPeriod() {
+        return wordPeriod;
+    }
 
-//    @Column()
-//    private Integer age;
-//
-//    @Enumerated(EnumType.STRING)
-//    private RoleType roleType;
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date createdDate;
-//
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date lastModifiedDate;
-//
-//    @Lob
-//    private String description;
-//
-//    public Member() {
+    public void setWordPeriod(Period wordPeriod) {
+        this.wordPeriod = wordPeriod;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public Set<String> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+    public void setFavoriteFoods(Set<String> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
+    }
+
+//    public List<Address> getAddressHistory() {
+//        return addressHistory;
 //    }
 //
+//    public void setAddressHistory(List<Address> addressHistory) {
+//        this.addressHistory = addressHistory;
+//    }
 
+    public List<AddressEntity> getAddressHistory() {
+        return addressHistory;
+    }
+
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
+        this.addressHistory = addressHistory;
+    }
 }
