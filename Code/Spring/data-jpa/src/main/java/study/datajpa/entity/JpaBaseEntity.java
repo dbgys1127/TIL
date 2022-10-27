@@ -1,5 +1,6 @@
 package study.datajpa.entity;
 
+
 import lombok.Getter;
 
 import javax.persistence.Column;
@@ -8,8 +9,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
-@MappedSuperclass
 @Getter
+@MappedSuperclass
 public class JpaBaseEntity {
     @Column(updatable = false)
     private LocalDateTime createdDate;
@@ -18,9 +19,10 @@ public class JpaBaseEntity {
     @PrePersist
     public void prePersist() {
         LocalDateTime now = LocalDateTime.now();
-        createdDate=now;
-        updatedDate=now;
+        createdDate = now;
+        updatedDate = now;
     }
+
     @PreUpdate
     public void preUpdate() {
         updatedDate = LocalDateTime.now();
