@@ -1,16 +1,17 @@
 package observerpattern.observer;
 
 import observerpattern.subject.Subject;
+import observerpattern.subject.WeatherData;
 
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
     private float temperature;
     private float humidity;
     private float pressure;
-    private Subject subject;
+    private WeatherData weatherData;
 
-    public CurrentConditionsDisplay(Subject subject) {
-        this.subject = subject;
-        subject.registerObserver(this);
+    public CurrentConditionsDisplay(WeatherData weatherData) {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override
@@ -19,9 +20,9 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getHumidity();
         display();
     }
 

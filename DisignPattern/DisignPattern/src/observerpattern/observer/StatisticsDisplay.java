@@ -1,18 +1,20 @@
 package observerpattern.observer;
 
 import observerpattern.subject.Subject;
+import observerpattern.subject.WeatherData;
 
 public class StatisticsDisplay implements Observer,DisplayElement{
+    private float temperature;
     private float maxTemperature=Float.MIN_VALUE;
     private float minTemperature=Float.MAX_VALUE;
     private float avgTemperature=0;
     private float sum=0;
     private float count=0;
-    private Subject subject;
+    private WeatherData weatherData;
 
-    public StatisticsDisplay(Subject subject) {
-        this.subject = subject;
-        subject.registerObserver(this);
+    public StatisticsDisplay(WeatherData weatherData) {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override
@@ -21,8 +23,9 @@ public class StatisticsDisplay implements Observer,DisplayElement{
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
-        sum+=temperature;
+    public void update() {
+        temperature = weatherData.getTemperature();
+        sum+= temperature;
         count++;
         avgTemperature=sum/count;
         if(temperature>maxTemperature) maxTemperature=temperature;
