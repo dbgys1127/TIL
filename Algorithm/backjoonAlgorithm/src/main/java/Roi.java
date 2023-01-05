@@ -6,20 +6,32 @@ import java.util.StringTokenizer;
 public class Roi {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int round = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int count = 0;
+        boolean [] prime = new boolean[246913];
+        StringBuilder sb = new StringBuilder();
+        int n = Integer.parseInt(br.readLine());
+        int count =0;
+        prime[0]=prime[1]=true;
 
-        for(int i=0;i<round;i++){
-            int num = Integer.parseInt(st.nextToken());
-            if((num==2)||(num==3)){
-                count++;
-            }else if(num==1){
+        for(int i=2;i<Math.sqrt(246912);i++){
+            if(prime[i]==true){
                 continue;
-            }else if(((num%2)!=0)&&((num%3)!=0)){
-                count++;
+            }
+            for(int j=i*i;j<246913;j+=i){
+                prime[j]=true;
             }
         }
-        System.out.print(count);
+
+        while(n!=0){
+            int m =2*n;
+            for(int i=n;i<=m;i++){
+                if(!prime[i]){
+                    count++;
+                }
+            }
+            sb.append(count).append('\n');
+            count=0;
+            n = Integer.parseInt(br.readLine());
+        }
+        System.out.print(sb);
     }
 }
