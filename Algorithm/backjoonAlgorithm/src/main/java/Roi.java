@@ -6,32 +6,27 @@ import java.util.StringTokenizer;
 public class Roi {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        boolean [] prime = new boolean[246913];
         StringBuilder sb = new StringBuilder();
-        int n = Integer.parseInt(br.readLine());
-        int count =0;
-        prime[0]=prime[1]=true;
+        int [][] pan = new int[3][3];
+        int std = 99;
 
-        for(int i=2;i<Math.sqrt(246912);i++){
-            if(prime[i]==true){
-                continue;
-            }
-            for(int j=i*i;j<246913;j+=i){
-                prime[j]=true;
+        for(int i=0;i<3;i++){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for(int j=0;j<3;j++){
+                pan[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
-        while(n!=0){
-            int m =2*n;
-            for(int i=n;i<=m;i++){
-                if(!prime[i]){
-                    count++;
+        while(std!=0){
+            for(int i=0;i<3;i++){
+                for(int j=0;j<3;j++){
+                    if(pan[i][j]==std){
+                        sb.append(std).append('\n').append(i+1).append(" ").append(j+1);
+                        System.out.print(sb);
+                        return;
+                    }
                 }
             }
-            sb.append(count).append('\n');
-            count=0;
-            n = Integer.parseInt(br.readLine());
+            std--;
         }
-        System.out.print(sb);
     }
 }
