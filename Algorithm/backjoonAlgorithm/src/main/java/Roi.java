@@ -1,32 +1,30 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Roi {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int round = Integer.parseInt(br.readLine());
+        int [] src = new int[round];
+        int [] std = new int[round];
+        st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
-        int [][] pan = new int[3][3];
-        int std = 99;
 
-        for(int i=0;i<3;i++){
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            for(int j=0;j<3;j++){
-                pan[i][j] = Integer.parseInt(st.nextToken());
-            }
+        for(int i=0;i<round;i++){
+            src[i]=Integer.parseInt(st.nextToken());
         }
-        while(std!=0){
-            for(int i=0;i<3;i++){
-                for(int j=0;j<3;j++){
-                    if(pan[i][j]==std){
-                        sb.append(std).append('\n').append(i+1).append(" ").append(j+1);
-                        System.out.print(sb);
-                        return;
-                    }
+
+        for(int i=0;i<round;i++){
+            for(int j=0;j<round;j++){
+                if(src[i]>src[j]){
+                    std[i]++;
                 }
             }
-            std--;
+            sb.append(std[i]).append(" ");
         }
+        System.out.print(sb);
     }
 }
