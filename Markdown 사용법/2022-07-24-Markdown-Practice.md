@@ -240,3 +240,68 @@ __볼드__
 이 글은 다음과 같은 글 및 영상을 따라해서 작성했습니다.
 1. :+1: **ihoneymon** 님의 [마크다운 작성법](https://bit.ly/3DmvDvQ)
 2. :+1: **유튜버 드림코딩 by엘리**님의 [마크다운(Markdown) 6분 순삭 정리 + 깃허브 리드미(ReadMe) 파일 작성 팁](https://bit.ly/35rUS3C) 
+
+```java 
+  boolean lock;
+
+  acquire() {
+    while(lock == true); // 임계 구역이 잠겨 있다면, 열릴때까지 확인
+
+    lock = true; // 열리면 들어가서 임계구역 잠금
+    showmakerAttack(int damage); // 임계 구역 접근 및 작업
+  }  
+
+  showmakerAttack(int damage){
+
+  }
+
+  release(){
+    lock = false; // 임계 구역 작업이 끝났으면 잠금 해제;
+  }
+```
+
+```java
+//S는 임계구역에 진입할 수 있는 프로세스 개수
+int S = 10;
+
+wait (){
+  while(S<=0); // S가 0이하면 접근 가능 여부 반복 파악
+  S--;         // 임계 구역에 접근 하면 진입가능 프로세스 개수 감소
+  reservation(); // 임계 구역 접근 및 작업
+}
+
+reservation(){
+
+}
+
+signal(){
+  S++; // 임계구역 작업을 마친 뒤 S를 증가
+}
+
+```
+
+```java
+//S는 임계구역에 진입할 수 있는 프로세스 개수
+int S = 10;
+
+wait (){
+  S--;         
+  if(S<0){
+    add this process to Queue; // 해당 프로세스 PCB를 대기 큐에 삽입한다.
+    sleep(); // 대기 상태로 접어든다.
+  }
+}
+
+reservation(){
+
+}
+
+signal(){
+  S++; // 임계구역 작업을 마친 뒤 S를 증가
+  if(S<=0){
+    remove a process p from Queue // 대기 큐에 있는 프로세스 p를 제거한다.
+    wakeup(p) // 프로세스 p를 대기 상태에서 준비 상태로 만든다.
+  }
+}
+
+```

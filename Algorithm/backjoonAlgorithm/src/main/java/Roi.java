@@ -4,27 +4,23 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Roi {
-    public static void main(String[] args) throws IOException {
+    public static StringBuilder sb = new StringBuilder();
+    public static void main(String[]args)throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        int round = Integer.parseInt(br.readLine());
-        int [] src = new int[round];
-        int [] std = new int[round];
-        st = new StringTokenizer(br.readLine());
-        StringBuilder sb = new StringBuilder();
+        int N = Integer.parseInt(br.readLine());
 
-        for(int i=0;i<round;i++){
-            src[i]=Integer.parseInt(st.nextToken());
-        }
+        int result =0;
 
-        for(int i=0;i<round;i++){
-            for(int j=0;j<round;j++){
-                if(src[i]>src[j]){
-                    std[i]++;
-                }
+        for(int i=1;i<N;i++){
+            int one = i%10;
+            int ten = (i%100-one)/10;
+            int hund = i/100;
+            int hap = i + hund+ten+one;
+            if(hap==N){
+                result = i;
+                break;
             }
-            sb.append(std[i]).append(" ");
         }
-        System.out.print(sb);
+        System.out.print(result);
     }
 }
