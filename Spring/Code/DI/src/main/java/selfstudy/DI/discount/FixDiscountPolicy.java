@@ -1,7 +1,9 @@
 package selfstudy.DI.discount;
 
+import org.springframework.stereotype.Component;
 import selfstudy.DI.member.Grade;
 import selfstudy.DI.member.Member;
+
 
 public class FixDiscountPolicy implements DiscountPolicy{
 
