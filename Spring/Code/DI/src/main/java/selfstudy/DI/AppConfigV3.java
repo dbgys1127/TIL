@@ -15,13 +15,11 @@ import selfstudy.DI.order.OrderServiceImpl;
 public class AppConfigV3 {
     @Bean
     public MemberService memberService() {
-        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public OrderService orderService() {
-        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(
                 memberRepository(),
                 discountPolicy());
@@ -29,7 +27,6 @@ public class AppConfigV3 {
 
     @Bean
     public MemberRepository memberRepository() {
-        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 

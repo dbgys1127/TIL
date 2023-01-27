@@ -1,10 +1,12 @@
 package selfstudy.DI.discount;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import selfstudy.DI.member.Grade;
 import selfstudy.DI.member.Member;
 
 @Component
+@Primary
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPercent =10;
     @Override
